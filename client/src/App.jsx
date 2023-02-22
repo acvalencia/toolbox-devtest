@@ -20,9 +20,7 @@ function App () {
 
   return (
     <div className='App'>
-      <Container>
-        <FilesTable files={files} />
-      </Container>
+      <FilesTable files={files} />
     </div>
   )
 }
