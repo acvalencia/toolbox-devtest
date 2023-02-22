@@ -102,6 +102,13 @@ npm start
 [![Product Name Screen Shot][product-screenshot5]](https://github.com/acvalencia/toolbox-devtest)
 [![Product Name Screen Shot][product-screenshot6]](https://github.com/acvalencia/toolbox-devtest)
 
+## Format code
+
+In the server or client folder you can use the following command to lint the code with Standard Js:
+```
+npm lint
+```
+
 [product-screenshot1]: images/1.PNG
 [product-screenshot2]: images/2.PNG
 [product-screenshot3]: images/3.PNG
