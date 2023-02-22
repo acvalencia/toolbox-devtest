@@ -14,7 +14,7 @@ const options = {
  * returns an array with files info
  */
 export const getFiles = (req, res) => {
-  const param = req.query.fileName.trim()
+  const param = req.query.fileName?.trim()
 
   fetch(`${url}/files`, options)
     .then((response) => response.json())
