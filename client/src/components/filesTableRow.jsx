@@ -5,7 +5,11 @@ const FilesTableRow = ({ row }) => {
     <>
       {row.lines.map((element, i) => (
         <tr key={i}>
-          <td>{row.file}</td>
+          <td>
+            <a href={`/?fileName=${row.file}`}>
+              {row.file}
+            </a>
+          </td>
           <td>{element.text}</td>
           <td>{element.number}</td>
           <td>{element.hex}</td>

@@ -2,20 +2,24 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Container from 'react-bootstrap/Container'
 import React, { useEffect, useState } from 'react'
 import FilesTable from './components/filesTable'
-import MainNav from './components/Nav'
+import { useSearchParams } from 'react-router-dom'
 
 function App () {
   const [files, setFiles] = useState([])
+  const [searchParams] = useSearchParams()
 
   useEffect(() => {
     fetch('http://localhost:3001/files/data')
       .then((res) => res.json())
-      .then((data) => setFiles(data))
-  }, [])
+      .then((data) => {
+        const param = searchParams.get('fileName')
+        const list = param ? data.filter((file) => file.file === param) : data
+        setFiles(list)
+      })
+  }, [searchParams])
 
   return (
     <div className='App'>
-      <MainNav />
       <Container>
         <FilesTable files={files} />
       </Container>
