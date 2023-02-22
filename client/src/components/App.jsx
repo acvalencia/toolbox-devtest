@@ -1,7 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
-import Container from 'react-bootstrap/Container'
 import React, { useEffect, useState } from 'react'
-import FilesTable from './components/filesTable'
+import FilesTable from './filesTable'
 import { useSearchParams } from 'react-router-dom'
 
 function App () {
@@ -19,9 +18,7 @@ function App () {
   }, [searchParams])
 
   return (
-    <div className='App'>
-      <FilesTable files={files} />
-    </div>
+    <FilesTable files={files} />
   )
 }
 
