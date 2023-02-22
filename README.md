@@ -67,6 +67,7 @@ npm start
 ```
 [![Product Name Screen Shot][product-screenshot2]](https://github.com/acvalencia/toolbox-devtest)
 [![Product Name Screen Shot][product-screenshot3]](https://github.com/acvalencia/toolbox-devtest)
+
 5. Run test suite
 
 ```bash
