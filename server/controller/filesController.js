@@ -14,6 +14,8 @@ const options = {
  * returns an array with files info
  */
 export const getFiles = (req, res) => {
+  const param = req.query.fileName.trim()
+
   fetch(`${url}/files`, options)
     .then((response) => response.json())
     .then((data) => {
@@ -54,8 +56,13 @@ export const getFiles = (req, res) => {
               })
           })
 
+          const list = param
+            ? result.filter((file) => file.file === param)
+            : result
+
+          console.log('Get files data successfully')
           res.contentType('application/json')
-          res.status(200).json(result)
+          res.status(200).json(list)
         })
         .catch((err) => {
           console.error('ERROR RUNNING PROMISES: ', err)
@@ -64,6 +71,24 @@ export const getFiles = (req, res) => {
             info: 'Something went wrong'
           })
         })
+    })
+    .catch((err) => {
+      console.error(err)
+      res.status(400).json({
+        message: err,
+        info: 'Something went wrong'
+      })
+    })
+}
+
+export const getFilesList = (req, res) => {
+  fetch(`${url}/files`, options)
+    .then((response) => response.json())
+    .then((data) => {
+      const files = data.files
+      console.log('Get files successfully')
+      res.contentType('application/json')
+      res.status(200).json(files)
     })
     .catch((err) => {
       console.error(err)
