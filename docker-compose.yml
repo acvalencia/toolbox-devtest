@@ -1,0 +1,22 @@
+version: '3.9'
+
+services:
+  backend:
+    image: node:14
+    container_name: serverapp
+    ports:
+      - "3001:3001"
+    build: ./server/
+    command: npm start
+    # networks:
+    #   - serverclient
+
+  frontend:
+    image: node:16
+    container_name: client
+    ports:
+      - "3000:3000"
+    build: ./client/
+    command: npm start
+    # networks:
+    #   - serverclient
